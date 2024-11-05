@@ -1,0 +1,84 @@
+.overview{
+    margin-top: 10px;
+}
+.overview .label-overview{
+    display: flex;
+    align-items: center;
+    padding: 15px 15px 0px 15px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.three-container{
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+}
+.income-box,.expense-box,.balance-box {
+    display: flex;
+    align-items: center;
+    font-weight: 300;
+    padding: 10px;
+    box-shadow: 0 0 10px rgb(0, 0, 0,.6);
+    flex-grow: 1;
+    flex-basis: 0;
+}
+.overview .icon {
+    font-size: 50px;
+    margin: 10px ;
+}
+.expense-box .icon{
+    color: #964242;
+    padding: 5px;
+}
+.income-box .icon{  
+    color: #429271;
+    padding: 5px;
+}
+.balance-box .icon{
+    color: rgb(197, 179, 75);
+    padding: 5px;
+}
+.income-amount,.expense-amount,.balance-amount{
+    padding: 0 15px;
+}
+.overview p{
+    margin: 0;
+    font-weight: 700;
+}
+#month-sort {
+    font-size: 14px;
+}
+
+.react-datepicker-wrapper {
+    width: 150px;
+}
+
+.react-datepicker__input-container input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #fff;
+    padding: 5px;
+    background-color: transparent;
+    font-weight: 600;
+    outline: none;
+    color: #fff;
+    text-align: center;
+}
+.react-datepicker {
+    background-color: #4A527B;
+    color: #fff;
+}
+.react-datepicker__header {
+    background-color: #4A527B;
+    color: #fff;
+}
+.react-datepicker__day {
+    color: #ffffff;
+}
+.react-datepicker__day--selected {
+    color: black;
+}

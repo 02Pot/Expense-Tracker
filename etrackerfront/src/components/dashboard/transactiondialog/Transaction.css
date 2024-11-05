@@ -1,0 +1,53 @@
+.ie-transaction{
+    padding: 10px;
+    box-shadow: 0 0 10px rgb(0, 0, 0,.6);
+    background-color: #4A527B ;
+    margin-top: 10px;
+    position: fixed;
+    z-index: 1000;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -99%);
+}
+.ie-transaction .transaction-title{
+    margin: 7px 0px;
+}
+.transaction-desc{
+    padding: 10px;
+    margin: 5px 0px;
+}
+.ie-transaction p{
+    margin: 3px 0px;
+}
+.ie-transaction input{
+    width: 100%;
+    background-color: #FFFDF2;
+    border-radius: 40px;
+    padding: 2px 10px;
+    outline: none;
+}
+.tr-category{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.unang-category,.pangalawang-category{
+    width: 50%;
+    padding: 10px;
+}
+.pangalawang-category{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.pangalawang-category button{
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+}
+.pangalawang-category button:hover{
+    border: none;
+    border-bottom: 1px solid #fff;
+}

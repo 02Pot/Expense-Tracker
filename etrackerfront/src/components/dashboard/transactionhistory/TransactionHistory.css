@@ -1,0 +1,27 @@
+.transaction-history{
+    padding: 10px;
+}
+.history-title{
+    padding: 15px 15px 0px 15px;
+    font-weight: 700;
+}
+.history-table{
+    box-shadow: 0 0 10px rgb(0, 0, 0,.6);
+    padding: 10px;
+}
+.history-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.history-table th {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 2px solid white;
+}
+
+.history-table td {
+    padding: 8px;
+    border-bottom: 1px solid gray;
+    text-align: center;
+}

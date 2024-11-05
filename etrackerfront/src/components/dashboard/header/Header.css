@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.Head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+.Head .head-img{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.head-img p {
+    margin: 0;
+}
+
+.Head .head-button{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.head-button a{
+    text-decoration: none;
+    font-weight: 500;
+}
+.head-button button{
+    font-weight: 500;
+    border: none;
+    background: transparent;
+    color: #fff;
+}
+.head-button button:hover{
+    border-bottom: 2px solid #fff; /* Change bottom border color on hover */
+}
+
+#expense,#logout,#income{
+    padding: 10px;
+}

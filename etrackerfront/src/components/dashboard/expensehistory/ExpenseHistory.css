@@ -1,0 +1,12 @@
+.expense-history{
+    padding: 10px;
+}
+.title-history{
+    padding: 10px;
+    font-weight: 700;
+}
+
+.graph-bar{
+    padding: 10px;
+    box-shadow: 0 0 10px rgb(0, 0, 0,.6);
+}

@@ -1,0 +1,24 @@
+.ie-box{
+    display: flex;
+    gap: 5px;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.ie-box .income-category,.ie-box .expense-category{
+    padding: 20px;
+    font-size: 15px;
+    width: 47%;
+}
+.ie-box p{
+    margin: 0;
+    padding: 2px 10px;
+}
+.ie-box h4{
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.icon {
+    margin-right: 8px;
+    font-size: 20px;
+}
