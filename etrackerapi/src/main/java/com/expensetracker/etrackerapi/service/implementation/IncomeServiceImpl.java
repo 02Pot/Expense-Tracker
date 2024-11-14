@@ -23,7 +23,7 @@ public class IncomeServiceImpl {
     @Autowired
     private UserRepository userRepository;
 
-    private UserModel getLoggedInUser() {
+    public UserModel getLoggedInUser() {
         String userEmail = SecurityContextHolder.getContext().getAuthentication().getName();
         return userRepository.findByUserEmail(userEmail);
     }

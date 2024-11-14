@@ -41,9 +41,5 @@ public class IncomeController {
     public void deleteIncome(@PathVariable Long incomeId){
         service.deleteIncome(incomeId);
     }
-    // @GetMapping("/categories")
-    // public ResponseEntity<List<String>> getIncomeCategories() {
-    //     List<String> categories = Arrays.asList("Salary", "Dividends", "Savings");
-    //     return ResponseEntity.ok(categories);
-    // }
+
 }

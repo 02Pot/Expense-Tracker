@@ -3,6 +3,7 @@ package com.expensetracker.etrackerapi.controller;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +29,9 @@ public class UserController {
     private UserServiceImpl service;
 
     @GetMapping(value = "/{userId}")
-    public UserModel getUser(@PathVariable Long userId){
-        return service.getUser(userId);
+    public ResponseEntity<UserModel> getUser(@PathVariable Long userId){
+        UserModel user = service.getUser(userId);
+        return ResponseEntity.status(HttpStatus.OK).body(user);
     }
 
     @GetMapping("/allUser")
@@ -38,8 +40,9 @@ public class UserController {
     }
     
     @PostMapping("/register")
-    public UserModel register(@RequestBody UserModel user) {
-        return service.register(user);
+    public ResponseEntity<UserModel> register(@RequestBody UserModel user) {
+        UserModel registeredUser = service.register(user);
+        return ResponseEntity.status(HttpStatus.CREATED).body(registeredUser);
     }
 
     @PostMapping("/login")
@@ -53,8 +56,9 @@ public class UserController {
     }
 
     @PutMapping(value = "/{userId}")
-    public UserModel updateUser(@PathVariable Long userId,@RequestBody UserModel user){
-        return service.updateUser(userId, user);
+    public ResponseEntity<UserModel> updateUser(@PathVariable Long userId,@RequestBody UserModel user){
+        UserModel updatedUser = service.updateUser(userId, user);
+        return ResponseEntity.status(HttpStatus.OK).body(updatedUser);
     }
 
     @DeleteMapping(value = "/{userId}")
