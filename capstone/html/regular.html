@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Payslip</title>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f4f4;
+        margin: 0;
+        padding: 40px;
+    }
+
+    .payslip-container {
+        background: white;
+        width: 780px;
+        margin: 0 auto;
+        padding: 40px 50px;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .header img {
+        width: 90px;
+        margin-bottom: 12px;
+    }
+
+    .title {
+        font-size: 26px;
+        font-weight: bold;
+        margin: 0;
+        color: #006400;
+    }
+
+    .subtitle {
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 4px;
+        color: #000;
+    }
+
+    .employee-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 100px;
+        margin: 35px 0 30px;
+        font-size: 15.5px;
+        line-height: 1.85;
+    }
+
+    .info-label {
+        font-weight: bold;
+        color: #000;
+        display: inline-block;
+        width: 155px;
+    }
+
+    /* PAY DETAILS: use explicit rows so left/right stay aligned */
+    .pay-section {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .section-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: end;
+        margin-bottom: 8px;
+    }
+
+    .section-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 6px;
+        border-bottom: 3px solid #000;
+        padding-bottom: 6px;
+        display: inline-block;
+    }
+
+    /* Grid for the rows: each .row is two columns (earnings | deductions) */
+    .pay-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+    }
+
+    .rows {
+        display: grid;
+        grid-auto-rows: min-content;
+        gap: 6px 0;
+    }
+
+    /* Each logical row (label + amount) */
+    .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px 0;
+        font-size: 15.5px;
+        color: #000;
+    }
+
+    .label {
+        font-weight: normal;
+    }
+
+    .label.bold {
+        font-weight: 600;
+    }
+
+    .amount {
+        min-width: 70px;
+        text-align: right;
+        font-weight: 500;
+    }
+
+    /* Totals styling (bottom row) */
+    .total-row {
+        border-top: 3px solid #000;
+        padding-top: 14px;
+        font-weight: 700;
+    }
+
+    .netpay {
+        text-align: right;
+        font-size: 21px;
+        font-weight: bold;
+        margin-top: 30px;
+        color: #000;
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 70px;
+        color: #555;
+        font-size: 14px;
+        font-style: italic;
+    }
+
+    /* Small responsive tweak */
+    @media (max-width: 820px) {
+        .payslip-container { width: 95%; padding: 30px; }
+        .employee-info { gap: 40px; grid-template-columns: 1fr; }
+        .section-header { grid-template-columns: 1fr; gap: 0; align-items: start; }
+        .pay-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
+</style>
+</head>
+<body>
+<div class="payslip-container">
+
+    <div class="header">
+        <img src="../assets/logo-ptc.png" alt="Pateros Technological College Logo">
+        <div class="title">Pateros Technological College</div>
+        <div class="subtitle">Payslip</div>
+    </div>
+
+    <div class="employee-info">
+        <div>
+            <span class="info-label">Employee Name:</span> Varon Jomar<br>
+            <span class="info-label">Worked Hours:</span> 69<br>
+            <span class="info-label">Overtime Hours:</span> 5<br>
+            <span class="info-label">Overtime Hours:</span> 5
+        </div>
+        <div>
+            <span class="info-label">Date of Joining:</span> October 5 2023<br>
+            <span class="info-label">Employee Type:</span> Regular<br>
+            <span class="info-label">Department:</span> MIS<br>
+            <span class="info-label">Pay Period:</span> November 1-15 2025
+        </div>
+    </div>
+
+    <!-- Section headers -->
+    <div class="section-header">
+        <div class="section-title">Earnings</div>
+        <div class="section-title">Deductions</div>
+    </div>
+
+    <!-- Pay grid: left = earnings rows, right = deduction rows.
+         Each column uses the same number of .row elements so they align perfectly. -->
+    <div class="pay-grid">
+
+        <!-- Left column (Earnings rows) -->
+        <div class="rows" id="earnings-rows">
+            <div class="row">
+                <div class="label">Basic Rate</div>
+                <div class="amount">1500</div>
+            </div>
+
+            <div class="row">
+                <div class="label">Food Allowance</div>
+                <div class="amount">200</div>
+            </div>
+
+            <div class="row">
+                <div class="label">Rent Allowance</div>
+                <div class="amount">100</div>
+            </div>
+
+            <div class="row">
+                <div class="label">Holidays</div>
+                <div class="amount">450</div>
+            </div>
+
+            <div class="row">
+                <div class="label">Overtime</div>
+                <div class="amount">200</div>
+            </div>
+
+            <div class="row total-row">
+                <div class="label bold">Gross Pay</div>
+                <div class="amount">2450</div>
+            </div>
+        </div>
+
+        <!-- Right column (Deductions rows) -->
+        <div class="rows" id="deductions-rows">
+            <!-- Row 1 aligns with Basic Rate -->
+            <div class="row">
+                <div class="label">&nbsp;</div>
+                <div class="amount">&nbsp;</div>
+            </div>
+
+            <!-- Row 2 aligns with Food Allowance -->
+            <div class="row">
+                <div class="label">Pag-Ibig</div>
+                <div class="amount">100</div>
+            </div>
+
+            <!-- Row 3 aligns with Rent Allowance -->
+            <div class="row">
+                <div class="label">PhilHealth</div>
+                <div class="amount">50</div>
+            </div>
+
+            <!-- Row 4 aligns with Holidays -->
+            <div class="row">
+                <div class="label">SSS</div>
+                <div class="amount">150</div>
+            </div>
+
+            <!-- Row 5 aligns with Overtime -->
+            <div class="row">
+                <div class="label">Late</div>
+                <div class="amount">200</div>
+            </div>
+
+            <!-- Row 6 aligns with Gross Pay -->
+            <div class="row total-row">
+                <div class="label bold">Total Deductions</div>
+                <div class="amount">700</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="netpay">
+        Total Net Pay: 1750
+    </div>
+
+    <div class="footer">
+        This is system generated payslip.
+    </div>
+
+</div>
+</body>
+</html>

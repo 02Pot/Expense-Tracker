@@ -1,0 +1,218 @@
+.container {
+    display: flex;
+    height: 100vh;
+}
+.main-content {
+    flex: 1;
+}
+.content {
+    flex: 1;
+    padding: 10px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+}
+.header .profile{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.header img{
+    border-radius: 6px;
+    height: 50px;
+    width: 50px !important;
+}
+body {
+    margin: 0;
+    background-color: rgb(210, 243, 210);
+    font-family: Poppins, sans-serif;
+}
+
+.sidebar {
+    width: 240px;
+    min-height: 100vh;
+    background: #ffffff;
+    border-right: 1px solid #e5e5e5;
+    padding: 10px;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.stat-card {
+    border-radius: 6px;
+    background: #fff;
+    padding: 18px 20px;
+    border: 1px solid #0e0d0dce;
+}
+.stat-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+.stat-card-header i {
+    color: #555; font-size: 14px; 
+}
+.stat-main {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2e7d2e;
+    margin-bottom: 4px;
+}
+.stat-sub { 
+    font-size: 13px; color: #555; 
+}
+.stat-sub span {
+    color: #e05a00; font-weight: 600; 
+}
+
+.emp-table {
+    width: 100%;
+    background: white;
+    border: 1px solid #000;
+    border-radius: 10px;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+}
+.emp-table thead th {
+    padding: 15px;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 2px solid #eee;
+    background-color: #f8f9fa
+}
+.emp-table tbody td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.emp-table-wrapper tbody tr:hover {
+    background: #f1f1f1;
+    cursor: default;
+}
+.emp-table tbody tr:last-child td {
+    border-bottom: none;
+}
+.badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.badge.completed {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+.badge.pending {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.pagination button {
+    padding: 6px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    font-size: 0.9rem;
+    color: #374151;
+}
+@keyframes shimmer {
+    0% { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
+}
+
+.skeleton {
+    height: 16px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+    background-size: 400px 100%;
+    animation: shimmer 1.2s ease-in-out infinite;
+    margin: auto;
+    width: 80%;
+}
+
+.skeleton-badge {
+    width: 60px;
+    height: 22px;
+    border-radius: 12px;
+}
+
+.skeleton-row td {
+    padding: 18px 15px;
+}
+.money-blur {
+    filter: blur(6px);
+    cursor: pointer;
+    user-select: none;
+    transition: filter 0.25s ease;
+    display: inline-block;
+    border-radius: 4px;
+}
+ 
+.money-blur:hover {
+    filter: blur(4px);
+    opacity: 0.85;
+}
+ 
+.money-blur.revealed {
+    filter: blur(0);
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px; /* Collapsed width for tablets/phones */
+        padding-top: 10px;
+    }
+
+    .logo span, 
+    .menu-title, 
+    .menu-item span {
+        display: none; /* Hide text on small screens */
+    }
+
+    .logo {
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+    .menu-item {
+        justify-content: center;
+        padding: 15px 0;
+        margin: 0 5px;
+    }
+    
+    .menu-item i {
+        margin: 0;
+        font-size: 20px;
+    }
+}

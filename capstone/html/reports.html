@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Payroll</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/reports.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+<script>
+    // JWT check
+    const token = localStorage.getItem("jwtToken");
+    if (!token) {
+        window.location.href = "login.html";
+    }
+    function handleLogOut(){
+    localStorage.removeItem('token')
+    sessionStorage.clear();
+    window.location.href = "./login.html"
+}
+</script>
+<div class="container">
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="../assets/logo-ptc.png" alt="Logo">
+            <span>PATEROS TECHNOLOGICAL COLLEGE</span>
+        </div>
+
+        <p class="menu-title">Menu</p>
+
+        <nav class="menu-list">
+            <a href="../index.html" class="menu-item">
+                <i class="fa-solid fa-house fa-lg" style="color: #555;"></i>
+                <span>DASHBOARD</span>
+            </a>
+            <a href="../html/payroll.html" class="menu-item">
+                <i class="fa-solid fa-money-bill fa-lg" style="color: #555;"></i>
+                <span>PAYROLL</span>
+            </a>
+            <a href="../html/employees.html" class="menu-item">
+                <i class="fa-solid fa-user fa-lg" style="color: #555;"></i>
+                <span>EMPLOYEES</span>
+            </a>
+            <a href="../html/reports.html" class="menu-item">
+                <i class="fa-solid fa-chart-area fa-lg" style="color: #555;"></i>
+                <span>REPORTS</span>
+            </a>
+        </nav>
+    </aside>
+
+
+    <main class="main-content">
+        <header class="header">
+            <h2>REPORTS</h2>
+            <div class="profile">
+                <img src="../assets/logo-ptc.png"></img>
+                <p>Hello, varon</p>
+                <i class="fa-solid fa-arrow-right-from-bracket fa-lg" onclick="handleLogOut()"></i>
+            </div>
+        </header>
+
+        <section class="content">
+            <div class="stat-grid">
+                <article class="stat-card">
+                    <div class="stat-card-header">
+                        <i class="fa-solid fa-piggy-bank fa-lg"></i> Total Gross Pay
+                    </div>
+                    <div class="stat-main" id="totalGrossPay">0</div>
+                    <div class="stat-sub">Total Gross Pay Calculated</span></div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-card-header">
+                        <i class="fa-solid fa-coins fa-lg"></i> Total Net Pay
+                    </div>
+                    <div class="stat-main" id="totalNetPay">
+                        0
+                    </div>
+                    <div class="stat-sub">
+                        Total Net Pay Calculated
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-card-header">
+                        <i class="fa-solid fa-database fa-lg"></i> Total Logs
+                    </div>
+                    <div class="stat-main" id="totalLogs">
+                        0
+                    </div>
+                    <div class="stat-sub">
+                        Overall Logs Completed
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section class="content">
+            <table class="emp-table">
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Date Processed</th>
+                        <th>Total Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>February 2026</td>
+                        <td>Apr 1 2026</td>
+                        <td>P25,509.00</td>
+                        <td>Completed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+
+</div>
+<script src="../javascript/reports.js"></script>
+</body>
+</html>

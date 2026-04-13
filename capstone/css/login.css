@@ -1,0 +1,97 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url("../assets/BG.png") no-repeat center center/cover;
+}
+
+/* HEADER (logo + school name) */
+.header {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.logo {
+    width: 120px;
+}
+.password-wrapper{
+    margin-bottom: 20px;
+}
+.header h1 {
+    margin-top: 10px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+/* LOGIN BOX */
+.login-container {
+    width: 360px;
+    margin: 80px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 5px;
+    font-size: 28px;
+}
+
+.login-container p {
+    margin: 5px 0 50px;
+    font-size: 14px;
+    color: #666;
+}
+.login-form {
+    width: 100%;
+}
+
+/* INPUTS */
+label {
+    display: block;
+    text-align: left;
+    font-size: 16px;
+    margin: 10px 0 5px;
+}
+
+input {
+    width: 100%;
+    height: 30px;
+    padding: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+input:focus {
+    border-color: #00b050;
+}
+
+.spacer {
+    height: 20px; /* Adjust to match old spacing */
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #1fb448;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #16973c;
+}

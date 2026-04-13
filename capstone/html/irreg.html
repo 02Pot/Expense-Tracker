@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payslip</title>
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f4f4;
+        margin: 0;
+        padding: 40px;
+    }
+
+    .payslip-container {
+        background: white;
+        width: 780px;
+        margin: 0 auto;
+        padding: 40px 50px;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .header img {
+        width: 90px;
+        margin-bottom: 12px;
+    }
+
+    .title {
+        font-size: 26px;
+        font-weight: bold;
+        margin: 0;
+        color: #006400;
+    }
+
+    .subtitle {
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 4px;
+        color: #000;
+    }
+
+    .employee-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 100px;
+        margin: 35px 0 50px;
+        font-size: 15.5px;
+        line-height: 1.85;
+    }
+
+    .info-label {
+        font-weight: bold;
+        color: #000;
+        display: inline-block;
+        width: 155px;
+    }
+
+    .pay-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        margin-top: 30px;
+        align-items: start;
+    }
+
+    .section-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 12px;
+        border-bottom: 3px solid #000;
+        padding-bottom: 6px;
+        display: inline-block;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 15.5px;
+    }
+
+    td {
+        padding: 8px 0;
+        color: #000;
+    }
+
+    .label-col {
+        width: 70%;
+    }
+
+    .amount-col {
+        text-align: right;
+        width: 30%;
+        font-weight: 500;
+    }
+
+    .total-row td {
+        font-weight: bold;
+        color: #000;
+        border-top: 3px solid #000;
+        padding-top: 14px;
+    }
+
+    .netpay {
+        text-align: right;
+        font-size: 21px;
+        font-weight: bold;
+        margin-top: 40px;
+        color: #000;
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 70px;
+        color: #555;
+        font-size: 14px;
+        font-style: italic;
+    }
+</style>
+</head>
+<body>
+
+<div class="payslip-container">
+    <div class="header">
+        <img src="../assets/logo-ptc.png" alt="Logo">
+        <div class="title">Pateros Technological College</div>
+        <div class="subtitle">Payslip</div>
+    </div>
+
+    <div class="employee-info">
+        <div>
+            <span class="info-label">Employee Name:</span> Varon Jomar<br>
+            <span class="info-label">Worked Hours:</span> 35<br>
+            <span class="info-label">Overtime Hours:</span> 5<br>
+            <span class="info-label">Employee Rate:</span> 150
+        </div>
+        <div>
+            <span class="info-label">Date of Joining:</span> January 2 2003<br>
+            <span class="info-label">Employee Type:</span> Part-Time<br>
+            <span class="info-label">Department:</span> Office Staff<br>
+            <span class="info-label">Pay Period:</span> November 1-15 2025
+        </div>
+    </div>
+
+    <div class="pay-details">
+
+        <!-- EARNINGS -->
+        <div>
+            <div class="section-title">Earnings</div>
+            <table>
+                <tr><td class="label-col">Basic Rate</td><td class="amount-col">5250</td></tr>
+                <tr><td class="label-col">Overtime</td><td class="amount-col">250</td></tr>
+                <tr class="total-row">
+                    <td class="label-col">Gross Pay</td>
+                    <td class="amount-col">5500</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- DEDUCTIONS (with alignment fix) -->
+        <div>
+            <div class="section-title">Deductions</div>
+            <table>
+                <!-- spacer row to align "Tax" with "Overtime" -->
+                <tr><td class="label-col">&nbsp;</td><td class="amount-col"></td></tr>
+
+                <tr><td class="label-col">Tax</td><td class="amount-col">100</td></tr>
+
+                <tr class="total-row">
+                    <td class="label-col">Total Deductions</td>
+                    <td class="amount-col">100</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="netpay">
+        Total Net Pay: 5400
+    </div>
+
+    <div class="footer">
+        This is a system generated payslip
+    </div>
+
+</div>
+
+</body>
+</html>

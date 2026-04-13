@@ -1,0 +1,73 @@
+
+<dialog id="payroll-dialog">
+    <div class="payslip-container">
+        <div class="header">
+            <img src="../assets/logo-ptc.png" alt="Logo">
+            <div class="title">Pateros Technological College</div>
+            <div class="subtitle">Payslip</div>
+        </div>
+
+        <div class="employee-info">
+                <div>
+                    <span class="info-label">Employee Name:</span>
+                    <span class="info-value" id="emp-name"></span>
+
+                    <span class="info-label" id="worked-label">Worked Hours:</span>
+                    <span class="info-value" id="worked-hrs"></span>
+
+                    <span class="info-label">Overtime Hours:</span>
+                    <span class="info-value" id="ot-hrs"></span>
+
+                    <span class="info-label" id="pay-label">Employee Rate:</span>
+                    <span class="info-value" id="emp-rate"></span>
+                </div>
+                <div>
+                    <span class="info-label">Date of Joining:</span>
+                    <span class="info-value" id="doj"></span>
+
+                    <span class="info-label">Employee Type:</span>
+                    <span class="info-value" id="emp-type"></span>
+
+                    <span class="info-label">Department:</span>
+                    <span class="info-value" id="emp-dep"></span>
+
+                    <span class="info-label">Pay Period:</span>
+                    <span class="info-value" id="p-period"></span>
+                </div>
+        </div>
+
+        <div class="pay-details">
+            <div>
+                <div class="section-title">Earnings</div>
+                <table>
+                    <tbody id="earnings-body"></tbody>
+                    <tr class="total-row">
+                        <td class="label-col">Gross Pay</td>
+                        <td class="amount-col" id="gross-pay"></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <div class="section-title">Deductions</div>
+                <table>
+                    <tbody id="deductions-body"></tbody>
+                    <tr class="total-row">
+                        <td class="label-col">Total Deductions</td>
+                        <td class="amount-col" id="total-deductions"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="netpay">
+            Total Net Pay: <span id="net-pay"></span>
+        </div>
+        <div class="footer">
+            This is a system generated payslip
+        </div>
+        <div class="dialog-button">
+            <button id="dialog-button-cancel" onclick="this.closest('dialog').close()">Cancel</button>
+            <button id="dialog-button-email">Send to Email</button>
+        </div>
+    </div>
+
+</dialog>

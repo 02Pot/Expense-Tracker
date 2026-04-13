@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Payroll</title>
+    <link rel="stylesheet" href="../css/employee.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/table.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+<script>
+    // JWT check
+    const token = localStorage.getItem("jwtToken");
+    if (!token) {
+        window.location.href = "login.html";
+    }
+    function handleLogOut(){
+    localStorage.removeItem('token')
+    sessionStorage.clear();
+    window.location.href = "./login.html"
+}
+</script>
+<div class="container">
+
+<div class="sidebar">
+        <div class="logo">
+            <img src="../assets/logo-ptc.png" alt="Logo">
+            <span>PATEROS TECHNOLOGICAL COLLEGE</span>
+        </div>
+
+        <p class="menu-title">Menu</p>
+
+        <div class="menu-list">
+            <a href="../index.html" class="menu-item">
+                <i class="fa-solid fa-house fa-lg" style="color: #555;"></i>
+                <span>DASHBOARD</span>
+            </a>
+            <a href="../html/payroll.html" class="menu-item">
+                <i class="fa-solid fa-money-bill fa-lg" style="color: #555;"></i>
+                <span>PAYROLL</span>
+            </a>
+            <a href="../html/employees.html" class="menu-item">
+                <i class="fa-solid fa-user fa-lg" style="color: #555;"></i>
+                <span>EMPLOYEES</span>
+            </a>
+            <a href="../html/reports.html" class="menu-item">
+                <i class="fa-solid fa-chart-area fa-lg" style="color: #555;"></i>
+                <span>REPORTS</span>
+            </a>
+        </div>
+    </div>
+
+
+<div class="main-content">
+    
+  <div class="header">
+      <h2>PAYROLL</h2>
+      <div class="profile">
+          <img src="../assets/logo-ptc.png"></img>
+          <p>Hello, varon</p>
+            <i class="fa-solid fa-arrow-right-from-bracket fa-lg" onclick="handleLogOut()"></i>
+      </div>
+    </div>
+    <div class="content">
+        <div id="uploadView" class="card">
+    <h2>Please import attendance to calculate</h2>
+    <label>
+        <input type="file" id="attendanceFile" accept=".xlsx,.xls,.csv" style="display: none;">
+        <button class="button" onclick="openAttendancePicker()">Import Attendance</button>
+    </label>
+</div>
+
+<div id="statsView" class="card" style="display: none;">
+    <div>
+        <div class="label">Processed Employee</div>
+        <div class="value" id="processedVal">0</div>
+    </div>
+    <div>
+        <div class="label">Failed to Process Employee</div>
+        <div class="value" id="failedVal">0</div>
+    </div>
+    <div>
+        <div class="label">Total Employee</div>
+        <div class="value" id="totalVal">0</div>
+    </div>
+
+    <div style="display:flex; flex-direction: row; gap:10px;">
+        <button style="background: white; border: 1px solid black; color: black;"
+                class="button" onclick="openAttendancePicker()">
+            Import Attendance
+        </button>
+        <button class="button" id="sendAllEmail" onclick="sendAllPayslipEmails()">
+            Send Payslip to All
+        </button>
+        <button class="button" id="runPayrollBtn">
+            Run Payroll
+        </button>
+    </div>
+</div>
+
+  <!-- TABLE SECTION -->
+<div class="emp-table-wrapper">
+    <div id="dialog-container">
+
+    </div>
+
+    <div class="emp-table-header">
+        <h2 class="emp-table-title">Payroll details</h2>
+        <div class="emp-search-box">
+            <input type="text" placeholder="Search employee">
+        </div>
+    </div>
+
+    <div class="emp-divider"></div>
+    <table class="emp-table">
+        <thead>
+            <tr>
+                <th>Employee Name</th>
+                <th>Email</th>
+                <th>Contact Number</th>
+                <th>Type</th>
+                <th>Payslip</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+    </div>
+
+<script src="../javascript/attendance.js"></script>
+<script src="../javascript/dialog.js"></script>
+<script src="../javascript/email.js"></script>
+</body>
+</html>

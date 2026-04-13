@@ -1,0 +1,464 @@
+.container {
+display: flex;
+height: 100vh;
+}
+.main-content {
+flex: 1;
+}
+.content{
+flex:1;
+padding:10px;
+}
+.btn-add {
+background-color: #6DC4D7;
+color: white;
+border: 1px solid black;
+padding: 10px 20px;
+border-radius: 6px;
+cursor: pointer;
+}
+.header{
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px !important;
+    background-color: white !important;
+}
+.header .profile{
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+.header img{
+    border-radius: 6px !important;
+    height: 50px !important;
+    width: 50px !important;
+}
+.btn-add:hover {
+background-color: #519eaf;
+}
+
+/* Edit Button */
+.btn-edit {
+background-color: #6DC4D7;
+color: white;
+border: 1px solid black;
+padding: 10px 20px;
+border-radius: 6px;
+cursor: pointer;
+}
+
+.btn-edit:hover {
+background-color: #519eaf;
+}
+
+/* Icon size */
+.btn-add i, .btn-edit i {
+font-size: 14px;
+padding: 4px;
+}
+
+
+/* MAIN WRAPPER */
+.emp-table-wrapper {
+background: white;
+padding: 15px 25px 25px;
+border: 1px solid #000;
+border-radius: 10px;
+margin-top: 20px;
+}
+
+.emp-table-wrapper tbody tr:hover {
+background: #f1f1f1;
+cursor: default;
+}
+.emp-table thead tr {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.emp-table thead th {
+text-align: center;
+padding: 10px;
+font-size: 16px;
+font-weight: 600;
+width: 20%;
+}
+
+.emp-table-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 10px;
+}
+
+.emp-table-title {
+font-size: 22px;
+font-weight: 700;
+margin: 0;
+padding: 0;
+}
+
+/* SEARCH BAR */
+.emp-search-box input {
+padding: 8px 14px;
+border: 2px solid #000; /* consistent black border */
+border-radius: 6px;
+font-size: 14px;
+width: 230px;
+outline: none;
+}
+
+/* SEARCH BAR HOVER/FOCUS */
+.emp-search-box input:focus {
+border-color: #0077ff;
+}
+
+/* DIVIDER LINE BELOW HEADER */
+.emp-divider {
+width: 100%;
+height: 1px;
+background: #00000030; /* light grey */
+margin: 10px 0 15px 0;
+}
+
+/* TABLE */
+.emp-table {
+width: 100%;
+border-collapse: collapse;
+table-layout: fixed;
+}
+
+.emp-table tbody td {
+padding: 10px 0;
+font-size: 14px;
+text-align: center;
+width: 20%;
+overflow: hidden;
+}
+.emp-table tbody tr{
+border-color: #000;
+display: flex;
+justify-content: space-between;
+}
+
+.emp-more-btn {
+border: none;
+background: none;
+font-size: 19px;
+cursor: pointer;
+color: #0077ff;
+font-family: Poppins;
+}
+
+
+.modal-close {
+position: absolute;
+top: 10px;
+right: 12px;
+font-size: 22px;
+background: transparent;
+border: none;
+cursor: pointer;
+line-height: 1;
+}
+
+/* Title */
+.modal-title {
+font-size: 20px;
+margin: 0 0 14px 0;
+font-weight: 700;
+}
+
+/* Form layout */
+.modal-form {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+.form-row{
+display: flex;
+justify-content: center;
+gap: 15px;
+width: 100%;
+}
+
+.form-row label {
+display: flex;
+flex-direction: column;
+font-weight: 600;
+font-size: 13px;
+gap: 6px;
+width: 100%;
+}
+.form-row input,
+.form-row select {
+padding: 10px 12px;
+border: 1px solid #777;
+border-radius: 6px;
+font-size: 14px;
+}
+
+.form-actions {
+display: flex;
+justify-content: flex-end;
+gap: 12px;
+margin-top: 6px;
+}
+.btn-save {
+background: #56c4d1;
+border: none;
+color: white;
+padding: 10px 16px;
+border-radius: 6px;
+cursor: pointer;
+font-weight: 600;
+}
+.btn-save:hover {
+background: #37b5c5;
+}
+.btn-cancel {
+background: #eee;
+border: 1px solid #ccc;
+padding: 10px 14px;
+border-radius: 6px;
+cursor: pointer;
+}
+
+.modal.show {
+display: flex;
+}
+
+.name-row {
+display: flex;
+gap: 15px;
+}
+
+.name-row .form-group {
+flex: 1;
+}
+
+.form-group input {
+width: 100%;
+padding: 9px 10px;
+border: 1px solid #000;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+.form-group label {
+display: block;
+margin-bottom: 5px;
+font-weight: 500;
+}
+
+.modal {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.45);
+display: none;
+justify-content: center;
+align-items: center;
+z-index: 9999;
+}
+
+/* Modal box */
+.modal-content {
+background: #fff;
+width: 480px;
+border-radius: 12px;
+border: 2px solid #000;
+padding: 20px;
+animation: popIn 0.2s ease-in-out;
+}
+.modal-content h4{
+    margin: 1em 0 0.2em;
+}
+/* Header layout */
+.modal-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.modal-header h2 {
+font-size: 20px;
+font-weight: bold;
+margin: 0;
+}
+
+/* Close button */
+.close-btn {
+background: none;
+border: none;
+font-size: 22px;
+cursor: pointer;
+}
+
+/* Body layout */
+.modal-body {
+margin-top: 15px;
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+
+/* First + Last Name row */
+.name-row {
+display: flex;
+gap: 12px;
+}
+
+.name-row .form-group {
+flex: 1;
+}
+
+/* Inputs + Selects */
+.form-group label {
+font-size: 13px;
+font-weight: 600;
+margin-bottom: 4px;
+display: block;
+}
+
+.form-group input,
+.form-group select {
+width: 100%;
+padding: 9px 12px;
+border: 1px solid #aaa;
+border-radius: 6px;
+font-size: 14px;
+}
+
+/* Footer buttons */
+.modal-footer {
+margin-top: 18px;
+display: flex;
+justify-content: flex-end;
+gap: 10px;
+}
+
+/* Cancel button */
+.btn-cancel {
+background: #eee;
+border: 1px solid #ccc;
+padding: 8px 16px;
+border-radius: 6px;
+cursor: pointer;
+}
+
+/* Update button */
+.btn-update {
+background: #4bbecb;
+color: white;
+border: 1px solid #ccc;
+padding: 8px 18px;
+border-radius: 6px;
+cursor: pointer;
+font-weight: bold;
+}
+
+.btn-update:hover {
+background: #32aab7;
+}
+
+/* CSS para magkatabi ang Male at Female */
+.radio-group {
+display: flex;
+gap: 20px; /* Distansya nila sa isa't isa */
+align-items: center;
+margin-top: 5px;
+}
+
+.radio-option {
+display: flex;
+align-items: center;
+gap: 8px; /* Distansya ng bilog sa text */
+cursor: pointer;
+}
+
+/* Optional: Para lumaki konti ang clickable area */
+.radio-option input[type="radio"] {
+transform: scale(1.2);
+cursor: pointer;
+}
+
+.dialog-button{
+    width: 100%;
+    gap:4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#dialog-button-cancel{
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 40%;
+    cursor: pointer;
+}
+#dialog-button-delete{
+    background-color: rgb(207, 93, 93) ;
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    width: 40%;
+    cursor: pointer;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.pagination button {
+    padding: 6px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    font-size: 0.9rem;
+    color: #374151;
+}
+@keyframes shimmer {
+    0% { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
+}
+
+.skeleton {
+    height: 16px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+    background-size: 400px 100%;
+    animation: shimmer 1.2s ease-in-out infinite;
+    margin: auto;
+    width: 80%;
+}
+
+.skeleton-badge {
+    width: 60px;
+    height: 22px;
+    border-radius: 12px;
+}
+
+.skeleton-row td {
+    padding: 18px 15px;
+}

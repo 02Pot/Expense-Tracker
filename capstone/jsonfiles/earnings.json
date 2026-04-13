@@ -1,0 +1,14 @@
+[
+    {
+        "employeeId": 5,
+        "earningsId": 1,
+        "earningsName": "Overtime",
+        "earningsAmount": 150
+    },
+    {
+        "employeeId": 5,
+        "earningsId": 2,
+        "earningsName": "Allowance",
+        "earningsAmount": 500
+    }
+]

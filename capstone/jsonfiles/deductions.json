@@ -1,0 +1,14 @@
+[
+    {   
+        "employeeId": 5,
+        "deductionsId": 1,
+        "deductionsName": "Employement Tax",
+        "deductionsAmount": 150
+    },
+    {
+        "employeeId": 5,
+        "deductionsId": 2,
+        "deductionsName": "Cash Advance",
+        "deductionsAmount": 100
+    }
+]

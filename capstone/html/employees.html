@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/employee.css">
+    <link rel="stylesheet" href="../css/employee-details.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+<script>
+    const token = localStorage.getItem("jwtToken");
+    if (!token) {
+        window.location.href = "login.html";
+    }
+    function handleLogOut(){
+    localStorage.removeItem('token')
+    sessionStorage.clear();
+    window.location.href = "./login.html"
+}
+</script>
+<div class="container">
+<div class="sidebar">
+        <div class="logo">
+            <img src="../assets/logo-ptc.png" alt="Logo">
+            <span>PATEROS TECHNOLOGICAL COLLEGE</span>
+        </div>
+
+        <p class="menu-title">Menu</p>
+
+        <div class="menu-list">
+            <a href="../index.html" class="menu-item">
+                <i class="fa-solid fa-house fa-lg" style="color: #555;"></i>
+                <span>DASHBOARD</span>
+            </a>
+            <a href="../html/payroll.html" class="menu-item">
+                <i class="fa-solid fa-money-bill fa-lg" style="color: #555;"></i>
+                <span>PAYROLL</span>
+            </a>
+            <a href="../html/employees.html" class="menu-item">
+                <i class="fa-solid fa-user fa-lg" style="color: #555;"></i>
+                <span>EMPLOYEES</span>
+            </a>
+            <a href="../html/reports.html" class="menu-item">
+                <i class="fa-solid fa-chart-area fa-lg" style="color: #555;"></i>
+                <span>REPORTS</span>
+            </a>
+        </div>
+    </div>
+
+
+<div class="main-content">
+
+  <div class="header">
+      <h2>EMPLOYEES</h2>
+      <div class="profile">
+          <img src="../assets/logo-ptc.png"></img>
+          <p>Hello, varon</p>
+            <i class="fa-solid fa-arrow-right-from-bracket fa-lg" onclick="handleLogOut()"></i>
+      </div>
+    </div>
+  <div class="content">
+<div class="button-group">
+    <button id="addEmployeeBtn" class="btn-add">
+      <span>Add Employee Records</span>
+      <i class="fas fa-plus"></i>
+    </button>
+    
+    <button id="editEmployeeBtn" class="btn-edit">
+      <span>Edit Employee Records</span>
+      <i class="fas fa-edit"></i>
+    </button>
+  </div>
+
+<div class="emp-table-wrapper">
+<div id="dialog-container">
+<dialog id="employee-details-dialog" style="padding:0; border:none;"></dialog>
+
+</div>
+
+    <div class="emp-table-header">
+        <h2 class="emp-table-title">Employee details</h2>
+        <div class="emp-search-box">
+            <input type="text" placeholder="Search employee">
+        </div>
+    </div>
+
+    <div class="emp-divider"></div>
+    <table class="emp-table">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Contact</th>
+          <th>Email</th>
+          <th>Gender</th>
+          <th>Employee Type</th>
+          <th>Department</th>
+          <th>More Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        </tr>
+      </tbody>
+    </table>
+</div>
+  <!-- ADD EMPLOYEE MODAL -->
+<div
+class="modal" id="addModal" aria-hidden="true" role="dialog" aria-labelledby="addModalTitle">
+<div class="modal-content" role="document">
+<button class="modal-close" data-close="addModal" aria-label="Close">
+  &times;
+</button>
+<h2 class="modal-title" id="addModalTitle">Add Employee</h2>
+
+<form id="addEmployeeForm" class="modal-form">
+  <h4>Personal Information</h4>
+  <div class="name-row">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" name="firstName" placeholder="First Name" required />
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" name="lastName" placeholder="Last Name" required />
+    </div>
+  </div>
+  <!-- Address -->
+  <div class="form-row">
+    <label>Address
+      <input name="address" type="Address" placeholder="Street, Barangay, City" required/>
+    </label>
+  </div>
+  <!-- Contact and Email-->
+  <div class="form-row">
+      <label>Email<input name="email" type="email" placeholder="example@domain.com" required/>
+    </label>
+    <label> Contact
+      <input name="contact" type="number" placeholder="+63" required/>
+    </label>
+  </div>
+
+  <!-- Gender -->
+  <div class="form-group">
+    <label class="form-label">Gender<span class="required"></span></label>
+    <div class="radio-group">
+      <div class="radio-option">
+        <input type="radio" id="genderMale" name="gender" value="Male" required
+          />
+        <label for="genderMale">MALE</label>
+      </div>
+          <div class="radio-option">
+            <input type="radio" id="genderFemale" name="gender" value="Female"/>
+            <label for="genderFemale">FEMALE</label>
+          </div>
+        </div>
+      </div>
+
+      <h4>Employee Information</h4>
+      <div class="form-row" required>
+        <label
+          >Employee Type
+          <select name="employeeEmploymentType">
+            <option>Part_Time</option>
+            <option>Regular</option>
+          </select>
+        </label>
+        <label>Date of Hire
+          <input type="date" id="editDateofHire" name="dateofhire" required
+          />
+      </div>
+
+      <!-- Department -->
+      <div class="form-row" required>
+        <label
+          >Department
+          <select name="department">
+            <option>Maintenance</option>
+            <option>Development</option>
+            <option>IT Support</option>
+            <option>Finance</option>
+            <option>Logistics</option>
+            <option>Human Resources</option>
+            <option>Administration</option>
+          </select>
+        </label>
+        <label>Employee Rate/Salary
+          <input
+          name="rate"
+          type="number"
+          placeholder="P 100"
+          required
+        />
+        </label>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-save">Save</button>
+        <button type="button" class="btn-cancel" data-close="addModal">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+    <!-- Edit Employee Modal -->
+    <div id="editModal" class="modal" aria-hidden="true">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Edit Employee</h2>
+          <button
+            class="close-btn"
+            data-close="editModal"
+            aria-label="Close modal"
+          >
+            &times;
+          </button>
+        </div>
+
+        <form id="editEmployeeForm">
+          <div class="modal-body">
+            <!-- Hidden field for employee ID -->
+            <input type="hidden" id="editEmployeeId" name="employeeId" />
+
+            <!-- First Name + Last Name Row -->
+            <div class="name-row">
+              <div class="form-group">
+                <label for="editFirstName">First Name</label>
+                <input
+                  type="text"
+                  id="editFirstName"
+                  name="firstName"
+                  placeholder="First Name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="editLastName">Last Name</label>
+                <input
+                  type="text"
+                  id="editLastName"
+                  name="lastName"
+                  placeholder="Last Name"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Address -->
+            <div class="form-row">
+              <label for="editAddress">Address
+              <input
+                type="text"
+                id="editAddress"
+                name="address"
+                placeholder="Street, Barangay, City"
+                required
+              />
+              </label>
+            </div>
+
+            <!-- Contact and Email -->
+            <div class="form-row">
+              <label for="editEmail">Email
+                <input
+                type="email"
+                id="editEmail"
+                name="email"
+                placeholder="example@domain.com"
+                required
+              />
+              </label>
+              <label for="editContact">Contact
+                <input
+                type="text"
+                id="editContact"
+                name="contact"
+                placeholder="+63"
+                pattern="[0-9]{11}"
+                required
+              />
+              </label>
+            </div>
+
+            <!-- Gender -->
+            <div class="form-group">
+              <label class="form-label"
+                >Gender<span class="required"></span></label>
+
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="genderMale"
+                    name="gender"
+                    value="Male"
+                    required
+                  />
+                  <label for="genderMale">Male</label>
+                </div>
+
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="genderFemale"
+                    name="gender"
+                    value="Female"
+                  />
+                  <label for="genderFemale">Female</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Employee Type -->
+            <div class="form-row">
+              <label
+              >Employee Type
+              <select name="employee type">
+                <option>Part_Time</option>
+                <option>Regular</option>
+              </select>
+            </label>
+              <label>Date of Hire
+                <input
+                type="date"
+                id="editDateofHire"
+                name="dateofhire"
+                placeholder="Full-Time / Part-Time"
+                required
+              />
+              </label>
+            </div>
+
+            <!-- Department -->
+            <div class="form-row">
+              <label for="editDepartment">Department
+                <select id="editDepartment" name="department" required>
+                <option value="">Select Department</option>
+                <option value="Maintenance">Maintenance</option>
+                <option value="Administration">Administration</option>
+                <option value="Development">Development</option>
+                <option value="IT Support">IT Support</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Logistics">Logistics</option>
+                <option value="Finance">Finance</option>
+                <option value="Marketing">Marketing</option>
+                <option value="General Services">General Services</option>
+                <option value="Accounting">Accounting</option>
+              </select>
+              </label>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn-update">Update</button>
+            <button type="button" class="btn-cancel" data-close="editModal">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+  
+<script src="../javascript/employee.js"></script>
+
+</body>
+</html>

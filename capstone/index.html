@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+
+</head>
+<body>
+
+<script>
+    const token = localStorage.getItem("jwtToken");
+    if (!token) {
+        window.location.href = "login.html";
+    }
+</script>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="./assets/logo-ptc.png" alt="Logo">
+            <span>PATEROS TECHNOLOGICAL COLLEGE</span>
+        </div>
+
+        <p class="menu-title">Menu</p>
+
+        <div class="menu-list">
+            <a href="./index.html" class="menu-item">
+                <i class="fa-solid fa-house fa-lg" style="color: #555;"></i>
+                <span>DASHBOARD</span>
+            </a>
+            <a href="./html/payroll.html" class="menu-item">
+                <i class="fa-solid fa-money-bill fa-lg" style="color: #555;"></i>
+                <span>PAYROLL</span>
+            </a>
+            <a href="./html/employees.html" class="menu-item">
+                <i class="fa-solid fa-user fa-lg" style="color: #555;"></i>
+                <span>EMPLOYEES</span>
+            </a>
+            <a href="./html/reports.html" class="menu-item">
+                <i class="fa-solid fa-chart-area fa-lg" style="color: #555;"></i>
+                <span>REPORTS</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Green section -->
+        <div class="header">
+            <h2>DASHBOARD</h2>
+            <div class="profile">
+                <img src="./assets/logo-ptc.png"></img>
+                <p>Hello, varon</p>
+                <i class="fa-solid fa-arrow-right-from-bracket fa-lg" onclick="handleLogOut()"></i>
+            </div>
+        </div>
+        <div class="content">
+
+            <!-- Stat Cards -->
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <i class="fa-solid fa-calendar fa-lg"></i> Current Payroll Date
+                    </div>
+                    <div class="stat-main">4/1/2026 - 4/15/2026</div>
+                    <div class="stat-sub">Days Remaining: <span id="daysRemaining">35</span></div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <i class="fas fa-user-check"></i> Total Employee
+                    </div>
+                    <div class="stat-main" id="totalEmployee">0</div>
+                    <div class="stat-sub">Overall Employee</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <i class="fa-solid fa-money-bill fa-lg"></i> Payroll Generated
+                    </div>
+                    <div class="stat-main" id="payrollGenerated">0</div>
+                    <div class="stat-sub">Total Employee payroll calculated</div>
+                </div>
+            </div>
+
+            <!-- Chart Card -->
+            <div class="chart-card">
+                <div class="chart-card-header">
+                    <div class="chart-card-title">Employee per Department</div>
+                </div>
+
+                <div class="chart-inner">
+                    <div class="chart-wrapper">
+                        <canvas id="deptChart"></canvas>
+                    </div>
+
+                    <div class="percent-panel">
+                        <h3>Percent of Employee<br>per Department</h3>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+
+</div>
+
+<script src="./javascript/dashboard.js"></script>
+
+</body>
+</html>
