@@ -1,6 +1,6 @@
 const sendAllPayslipEmails = async () => {
     try {
-        const response = await fetch(`http://localhost:8081/mail/send-all`, {
+        const response = await fetch(`${CONFIG.BASE_URL}/mail/send-all`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -25,7 +25,7 @@ const sendAllPayslipEmails = async () => {
 
 window.sendPayslipEmail = async (employeeId) => {
     try {
-        const response = await fetch(`http://localhost:8081/mail/send/${employeeId}`, {
+        const response = await fetch(`${CONFIG.BASE_URL}/mail/send/${employeeId}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -25,13 +25,13 @@ async function loadAttendanceTable() {
 
     try {
         const [attendanceRes, payrollRes,employeeRes] = await Promise.all([
-            fetch("http://localhost:8081/attendance", {
+            fetch(`${CONFIG.BASE_URL}/attendance`, {
                 headers: { "Authorization": `Bearer ${token}` }
             }),
-            fetch("http://localhost:8081/payroll/cutoff", {
+            fetch(`${CONFIG.BASE_URL}/payroll/cutoff`, {
                 headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` }
             }),
-            fetch("http://localhost:8081/api/employee", {
+            fetch(`${CONFIG.BASE_URL}/api/employee`, {
                 headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` }
             })
         ]);
@@ -76,7 +76,7 @@ document.getElementById("attendanceFile").addEventListener("change", async funct
     const token = localStorage.getItem("jwtToken");
 
     try {
-        const res = await fetch("http://localhost:8081/attendance/import", {
+        const res = await fetch(`${CONFIG.BASE_URL}/attendance/import`, {
             method: "POST",
             headers: { "Authorization": `Bearer ${token}` },
             body: formData
@@ -98,7 +98,7 @@ document.getElementById("attendanceFile").addEventListener("change", async funct
 document.getElementById("runPayrollBtn").addEventListener("click", async () => {
     const token = localStorage.getItem("jwtToken");
     try {
-        const res = await fetch("http://localhost:8081/payroll/run-cutoff", {
+        const res = await fetch(`${CONFIG.BASE_URL}/payroll/run-cutoff`, {
             method: "POST",
             headers: { "Content-Type": "application/json" ,
                 "Authorization": `Bearer ${token}`
@@ -205,11 +205,11 @@ function renderPagination(current, totalPages,url,table) {
 function changePage(page) {
     currentPage = page;
     const table = document.querySelector(".emp-table")
-    loadIntoTable("http://localhost:8081/api/employee", table, currentPage);
+    loadIntoTable(`${CONFIG.BASE_URL}/api/employee`, table, currentPage);
 }
 
 document.addEventListener("DOMContentLoaded",() => {
     const employeeTable = document.querySelector(".emp-table");
-    loadIntoTable("http://localhost:8081/api/employee", employeeTable,0);
+    loadIntoTable(`${CONFIG.BASE_URL}/api/employee`, employeeTable,0);
     loadAttendanceTable();
 })

@@ -11,7 +11,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Table(name = "employee")
@@ -46,6 +45,8 @@ public class EmployeeModel {
     private List<AttendanceModel> attendanceModels;
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<PayrollModel> payrollModel;
+
+    public EmployeeModel(){}
 
     public EmployeeModel(Long eId, String employeeEmail, String employeeFirstName, String employeeLastName, long employeeContactNumber,
                          String employeeAddress, Gender employeeGender, EmployeeType employmentType, LocalDate dateOfHire, String employeeDepartment, Long employeeRate

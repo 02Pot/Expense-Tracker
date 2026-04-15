@@ -1,8 +1,7 @@
-// ── Days remaining calc ──
 async function fetchEmployees(page=0,size=1000){
     try {
         const token = localStorage.getItem("jwtToken");
-        const res = await fetch(`http://localhost:8081/api/employee?page=${page}&size=${size}`, {
+        const res = await fetch(`${CONFIG.BASE_URL}/api/employee?page=${page}&size=${size}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -23,7 +22,7 @@ async function fetchEmployees(page=0,size=1000){
 async function fetchPayroll() {
     try {
         const token = localStorage.getItem("jwtToken");
-        const res = await fetch("http://localhost:8081/payroll/cutoff", {
+        const res = await fetch(`${CONFIG.BASE_URL}/payroll/cutoff`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -35,7 +34,7 @@ async function fetchPayroll() {
     } catch (err) {
         console.error(err);
         return [];
-    }       
+    }
 }
 
 function groupByDepartment(employees) {
@@ -117,7 +116,7 @@ function stringToColor(str) {
         hash = str.charCodeAt(i) + ((hash << 5) - hash);
     }
     const h = Math.abs(hash % 360);
-    return `hsl(${h}, 70%, 50%)`; 
+    return `hsl(${h}, 70%, 50%)`;
 }
 
 async function init() {

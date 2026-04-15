@@ -4,7 +4,7 @@ const pageSize = 11;
 async function fetchPayroll(page=0) {
     try {
         const token = localStorage.getItem("jwtToken");
-        const res = await fetch(`http://localhost:8081/payroll/all?page=${page}&size=${pageSize}`, {
+        const res = await fetch(`${CONFIG.BASE_URL}/payroll/all?page=${page}&size=${pageSize}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

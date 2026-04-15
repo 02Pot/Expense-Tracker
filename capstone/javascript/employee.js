@@ -98,7 +98,7 @@ function connectAddEmployeeForm() {
         try {
             const token = localStorage.getItem("jwtToken");
 
-            const res = await fetch("http://localhost:8081/api/employee", {
+            const res = await fetch(`${CONFIG.BASE_URL}/api/employee`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -261,5 +261,5 @@ function changePage(page) {
 
 document.addEventListener("DOMContentLoaded", async () => {
     loadDialog();  // wait for dialog to laod
-    loadIntoTable("http://localhost:8081/api/employee", document.querySelector(".emp-table"),0);
+    loadIntoTable(`${CONFIG.BASE_URL}/api/employee`, document.querySelector(".emp-table"),0);
 });
